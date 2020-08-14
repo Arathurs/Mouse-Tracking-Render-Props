@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Run Away From The Baby Chimp!!</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+		class MouseTracker extends React.Component {
+			render() {
+				return (
+					<div>
+						<h1 style={{textAlign: 'center'}}>Watch the chimp follow the mouse as you move it!</h1>
+						<Mouse render={mouse => (
+							<Chimp mouse={mouse} />
+						)}/>
+					</div>
+				);
+			}
+		}
+
+		class Chimp extends React.Component {
+			render() {
+				const mouse = this.props.mouse;
+				return (
+					<img src="./img/chimp.png" style={{ position: 'absolute', left: mouse.x, top: mouse.y }} />
+				);
+			}
+		}
+		
+		class Mouse extends React.Component {
+			constructor(props) {
+				super(props);
+				this.handleMouseMove = this.handleMouseMove.bind(this);
+				this.state = { x: 0, y: 0 };
+			}
+
+			handleMouseMove(event) {
+				this.setState({
+					x: event.clientX,
+					y: event.clientY
+				});
+			}
+
+			render() {
+				return (
+					<div style={{ height: '100vh' }} onMouseMove={this.handleMouseMove}>
+					{/*
+					Use the `render` prop to dynamically determine what to render.
+					This allows the component's functionality to become reusable,
+					instead of being limited to a static, inflexible representation
+					of what <Mouse> renders.
+					*/}
+					{this.props.render(this.state)}
+					</div>
+				);
+			}
+		}
+    </script>
+    <script type="text/jsx">
+      ReactDOM.render(
+        <MouseTracker />,
+        document.getElementById('root')
+      );
+    </script>
+  </body>
+</html>
