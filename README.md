@@ -1,7 +1,7 @@
 # Mouse Tracker Render Props
 
 ### Screenshot:
-  ![Screenshot](/img/homepage.png)
+  ![Screenshot](/public/img/homepage.png)
 
 #### [Link to Live Site](https://arathurs.github.io/Mouse-Tracking-Render-Props/) 
 #### [Link to Repo](https://github.com/Arathurs/Mouse-Tracking-Render-Props.git/)  
