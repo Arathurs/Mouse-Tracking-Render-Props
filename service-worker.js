@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Mouse-Tracking-Render-Props/precache-manifest.497d7497b4e35a9c0f016a570f1340c6.js"
+  "/Mouse-Tracking-Render-Props/precache-manifest.49426a0b77a9acd3192d3790f8fd55a7.js"
 );
 
 self.addEventListener('message', (event) => {
